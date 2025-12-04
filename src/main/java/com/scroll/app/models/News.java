@@ -1,6 +1,5 @@
 package com.scroll.app.models;
 
-import com.scroll.app.enums.CategoryEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

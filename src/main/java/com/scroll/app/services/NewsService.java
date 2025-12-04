@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.scroll.app.enums.CategoryEnum;
+
 import com.scroll.app.models.News;
 import com.scroll.app.repositories.NewsRepository;
 import lombok.RequiredArgsConstructor;
