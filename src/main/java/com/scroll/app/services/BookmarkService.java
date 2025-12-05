@@ -1,16 +1,55 @@
 package com.scroll.app.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.scroll.app.models.Bookmark;
+import com.scroll.app.models.News;
+import com.scroll.app.models.User;
 import com.scroll.app.repositories.BookmarkRepository;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@RequiredArgsConstructor
+@Slf4j
 public class BookmarkService {
 
 	private final BookmarkRepository bookmarkRepository;
 
-	public BookmarkService(BookmarkRepository bookmarkRepository) {
-		this.bookmarkRepository = bookmarkRepository;
+
+	@Transactional
+	public Bookmark addBookmark(User user, News news) {
+		// Check if already bookmarked
+		if (bookmarkRepository.existsByUserAndNews(user, news)) {
+			throw new RuntimeException("Already bookmarked");
+		}
+
+		Bookmark bookmark = new Bookmark();
+		bookmark.setUser(user);
+		bookmark.setNews(news);
+
+		return bookmarkRepository.save(bookmark);
+	}
+
+
+	@Transactional
+	public void removeBookmark(User user, News news) {
+		bookmarkRepository.deleteByUserAndNews(user, news);
+	}
+
+	public List<News> getUserBookmarks(User user) {
+		return bookmarkRepository.findBookmarkedNewsByUser(user);
+	}
+
+	public boolean isBookmarked(User user, News news) {
+		return bookmarkRepository.existsByUserAndNews(user, news);
+	}
+
+	public long getUserBookmarkCount(User user) {
+		return bookmarkRepository.countByUser(user);
 	}
 
 
