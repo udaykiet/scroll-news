@@ -39,7 +39,8 @@ public class NewsApiService {
 
 			log.info("Fetching news from: {}", url);
 
-			NewsApiResponse response = webClient.get()
+			NewsApiResponse response = webClient
+					.get()
 					.uri(url)
 					.retrieve()
 					.bodyToMono(NewsApiResponse.class)
