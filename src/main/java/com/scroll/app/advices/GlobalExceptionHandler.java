@@ -5,9 +5,11 @@ import java.util.Collections;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.scroll.app.exceptions.ResourceNotFoundException;
 
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
 	// Handle ResourceNotFoundException Exception
@@ -24,6 +26,9 @@ public class GlobalExceptionHandler {
 				.body(error);
 
 	}
+
+
+
 
 	// Handle General Exceptions
 	@ExceptionHandler(Exception.class)

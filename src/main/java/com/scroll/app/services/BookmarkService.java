@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.scroll.app.dtos.BookmarkRequestDto;
+import com.scroll.app.exceptions.ResourceNotFoundException;
 import com.scroll.app.models.Bookmark;
 import com.scroll.app.models.News;
 import com.scroll.app.models.User;
@@ -40,6 +41,11 @@ public class BookmarkService {
 
 	@Transactional
 	public void removeBookmark(User user, News news) {
+		//check if it is bookmarked or not
+		if(!bookmarkRepository.existsByUserAndNews(user , news)){
+			throw new ResourceNotFoundException("Bookmark not found");
+		}
+
 		bookmarkRepository.deleteByUserAndNews(user, news);
 	}
 

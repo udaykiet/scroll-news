@@ -27,3 +27,4 @@ public interface BookmarkRepository extends JpaRepository<Bookmark , Long> {
 
 	long countByUser(User user);
 }
+
