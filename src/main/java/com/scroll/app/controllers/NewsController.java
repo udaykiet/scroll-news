@@ -54,7 +54,7 @@ public class NewsController {
 	/**
 	 * Get news by category
 	 */
-	@GetMapping("/category/{category}")
+	@GetMapping("/search/{category}")
 	public ResponseEntity<Page<News>> getNewsByCategory(
 			@PathVariable News.Category category,
 			@RequestParam(defaultValue = "0") int page,

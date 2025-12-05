@@ -1,0 +1,37 @@
+inshorts-backend/
+├── src/main/java/com/inshorts/
+│   ├── InShortsApplication.java
+│   ├── controller/
+│   │   ├── NewsController.java
+│   │   ├── UserController.java
+│   │   └── CategoryController.java
+│   ├── service/
+│   │   ├── NewsService.java
+│   │   ├── SummarizationService.java
+│   │   ├── ScraperService.java
+│   │   └── UserService.java
+│   ├── repository/
+│   │   ├── NewsRepository.java
+│   │   ├── UserRepository.java
+│   │   └── BookmarkRepository.java
+│   ├── model/
+│   │   ├── News.java
+│   │   ├── User.java
+│   │   ├── Bookmark.java
+│   │   └── Category.java
+│   ├── dto/
+│   │   ├── NewsDTO.java
+│   │   ├── UserDTO.java
+│   │   └── SummaryRequest.java
+│   ├── config/
+│   │   ├── SecurityConfig.java
+│   │   ├── RedisConfig.java
+│   │   └── CorsConfig.java
+│   └── util/
+│       ├── JwtUtil.java
+│       └── TextSummarizer.java
+├── src/main/resources/
+│   ├── application.properties
+│   └── application-dev.properties
+└── pom.xml (or build.gradle)
+
