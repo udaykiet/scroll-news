@@ -31,12 +31,14 @@ public class NewsApiService {
 
 
 
+//	https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6306f70f8b5b4ec4ac1d10bd514387be
 
 	public void fetchAndSaveNews(String country, String category) {
 		try {
-			String url = String.format("%s/top-headlines?country=%s&category=%s&apiKey=%s",
-					apiUrl, country, category, apiKey);
+//			String url = String.format("%s/top-headlines?country=%s&category=%s&apiKey=%s",
+//					apiUrl, country, category, apiKey);
 
+			String url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6306f70f8b5b4ec4ac1d10bd514387be";
 			log.info("Fetching news from: {}", url);
 
 			NewsApiResponse response = webClient

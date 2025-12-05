@@ -55,9 +55,9 @@ public class DataLoader implements CommandLineRunner {
 		news3.setPublishedAt(LocalDateTime.now().minusHours(1));
 
 		// Save sample news
-		newsService.saveNews(news1);
-		newsService.saveNews(news2);
-		newsService.saveNews(news3);
+//		newsService.saveNews(news1);
+//		newsService.saveNews(news2);
+//		newsService.saveNews(news3);
 
 		log.info("Sample data loaded successfully!");
 	}
