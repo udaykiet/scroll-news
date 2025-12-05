@@ -34,4 +34,3 @@ inshorts-backend/
 │   ├── application.properties
 │   └── application-dev.properties
 └── pom.xml (or build.gradle)
-

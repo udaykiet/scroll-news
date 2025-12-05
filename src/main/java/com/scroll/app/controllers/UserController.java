@@ -26,9 +26,7 @@ public class UserController {
 
 
 	@PostMapping("/register")
-	public ResponseEntity<Map<String, Object>> registerUser(
-			@RequestBody User user
-	) {
+	public ResponseEntity<Map<String, Object>> registerUser(@RequestBody User user) {
 		try {
 			User savedUser = userService.createUser(user);
 

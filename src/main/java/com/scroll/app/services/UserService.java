@@ -3,8 +3,10 @@ package com.scroll.app.services;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.scroll.app.exceptions.ResourceNotFoundException;
 import com.scroll.app.models.User;
 import com.scroll.app.repositories.UserRepository;
 import jakarta.transaction.Transactional;
@@ -18,6 +20,7 @@ public class UserService {
 
 
 	private final UserRepository userRepository;
+	private final ModelMapper modelMapper;
 
 	public User createUser(User user) {
 		if (userRepository.existsByEmail(user.getEmail())) {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.scroll.app.dtos.BookmarkRequestDto;
 import com.scroll.app.models.Bookmark;
 import com.scroll.app.models.News;
 import com.scroll.app.models.User;
@@ -18,6 +19,8 @@ import lombok.extern.slf4j.Slf4j;
 public class BookmarkService {
 
 	private final BookmarkRepository bookmarkRepository;
+	private final UserService userService;
+	private final NewsService newsService;
 
 
 	@Transactional
