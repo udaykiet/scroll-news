@@ -1,0 +1,80 @@
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         ENTITY RELATIONSHIP DIAGRAM                      │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────┐
+│       USER           │
+├──────────────────────┤
+│ id (PK)              │
+│ email (unique)       │
+│ password             │
+│ full_name            │
+│ phone                │
+│ created_at           │
+│ last_login_at        │
+└──────────┬───────────┘
+           │
+           │ 1
+           │
+           │ *
+┌──────────▼───────────┐
+│     BOOKMARK         │
+├──────────────────────┤
+│ id (PK)              │
+│ user_id (FK)         │───────┐
+│ news_id (FK)         │       │
+│ bookmarked_at        │       │
+└──────────────────────┘       │
+                               │
+                               │ *
+                               │
+                               │ 1
+                    ┌──────────▼────────────┐
+                    │       NEWS            │
+                    ├───────────────────────┤
+                    │ id (PK)               │
+                    │ title                 │
+                    │ summary (60 words)    │
+                    │ content               │
+                    │ source                │
+                    │ category (ENUM)       │
+                    │ image_url             │
+                    │ url                   │
+                    │ published_at          │
+                    │ created_at            │
+                    └───────────┬───────────┘
+                                │
+                                │ 1
+                                │
+                                │ *
+                    ┌───────────▼───────────┐
+                    │   USER_PREFERENCE     │
+                    ├───────────────────────┤
+                    │ id (PK)               │
+                    │ user_id (FK)          │
+                    │ preferred_categories  │
+                    │ notification_enabled  │
+                    │ updated_at            │
+                    └───────────────────────┘
+
+┌──────────────────────┐            ┌──────────────────────┐
+│   READING_HISTORY    │            │   NEWS_VIEW_COUNT    │
+├──────────────────────┤            ├──────────────────────┤
+│ id (PK)              │            │ id (PK)              │
+│ user_id (FK)         │            │ news_id (FK)         │
+│ news_id (FK)         │            │ view_count           │
+│ read_at              │            │ last_viewed_at       │
+│ time_spent_seconds   │            └──────────────────────┘
+└──────────────────────┘
+
+┌──────────────────────┐
+│    NEWS_CATEGORY     │
+├──────────────────────┤
+│ GENERAL              │
+│ BUSINESS             │
+│ ENTERTAINMENT        │
+│ HEALTH               │
+│ SCIENCE              │
+│ SPORTS               │
+│ TECHNOLOGY           │
+└──────────────────────┘
