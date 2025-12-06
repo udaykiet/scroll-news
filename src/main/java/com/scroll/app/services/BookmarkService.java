@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.scroll.app.dtos.BookmarkRequestDto;
 import com.scroll.app.exceptions.ResourceNotFoundException;
 import com.scroll.app.models.Bookmark;
 import com.scroll.app.models.News;

@@ -1,0 +1,41 @@
+┌─────────────────────────────────────────────────────────────┐
+│                    USER PREFERENCE FLOW                      │
+└─────────────────────────────────────────────────────────────┘
+
+1. USER SIGNS UP
+   ↓
+2. ONBOARDING SCREEN: "What interests you?"
+   ☐ Technology  ☐ Sports  ☐ Business
+   ☐ Entertainment  ☐ Health  ☐ Science
+   ↓
+3. USER SELECTS: Technology, Sports
+   ↓
+4. SAVE TO DATABASE (user_preference table)
+   ↓
+5. HOME FEED SHOWS:
+   - 60% Technology news
+   - 30% Sports news
+   - 10% Other categories (for discovery)
+   ↓
+6. USER CAN CHANGE ANYTIME in Settings
+
+
+
+┌──────────────────┐         ┌──────────────────────┐
+│      USER        │         │   USER_PREFERENCE    │
+├──────────────────┤         ├──────────────────────┤
+│ id (PK)          │◄────────│ id (PK)              │
+│ email            │    1:1  │ user_id (FK)         │
+│ password         │         │ category_1           │
+│ full_name        │         │ category_2           │
+│ created_at       │         │ category_3           │
+└──────────────────┘         │ notification_enabled │
+                             │ notification_time    │
+                             │ language             │
+                             │ updated_at           │
+                             └──────────────────────┘
+
+Why 1:1 Relationship?
+- Each user has EXACTLY ONE preference record
+- Easy to query and update
+- Better performance than many-to-many

@@ -3,6 +3,7 @@ package com.scroll.app.models;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,6 +35,11 @@ public class User {
 	private LocalDateTime createdAt;
 
 	private LocalDateTime lastLoginAt;
+
+	// NEW: One-to-One relationship with UserPreference
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
+	private UserPreference preference;
 
 	@PrePersist
 	protected void onCreate() {
